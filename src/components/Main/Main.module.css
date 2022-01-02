@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     padding: 17px;
+    gap: 16px;
 }
 .buttonContainer{
     display: flex;
