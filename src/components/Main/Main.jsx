@@ -87,9 +87,9 @@ function Main() {
           </Button>
         </div>
       </form>
-      <div className={styles.newurlcontainer}>
+      <Card className={styles.newurl}>
         {newurl ? (
-          <Card className={styles.newurl}>
+          <>
             <Typography
               variant="h6"
               gutterBottom
@@ -117,13 +117,16 @@ function Main() {
                 onClick={() => window.open(newurl)}
               />
             </div>
-          </Card>
+          </>
         ) : (
           <Typography variant="h6" gutterBottom component="div">
-            Enter Url And time from which video will start Playing
+            Enter Url And time from which video will start Playing, for example{' '}
+            <a href="https://youtu.be/iSo9l950QLo?t=62" target="_blank">
+              click here
+            </a>
           </Typography>
         )}
-      </div>
+      </Card>
     </div>
   );
 }

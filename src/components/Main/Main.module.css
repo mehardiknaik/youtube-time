@@ -20,14 +20,13 @@
     display: flex;
     gap: 31px;
 }
-.newurlcontainer{
-    margin: 0 10px;
-}
+
 .newurl{
     display: flex;
     justify-content: space-between;
     padding: 17px;
     gap: 16px;
+    margin: 10px;
 }
 .buttonContainer{
     display: flex;
