@@ -1,6 +1,6 @@
 import { Button, Card, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { useState } from "react";
+import React,{ useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
 import { OpenInNew } from "@mui/icons-material";
@@ -13,6 +13,7 @@ function Main() {
 
   const InputLimit = (e, label) => {
     e.target.value = Math.max(
+      Math.max(0),
       Math.min(e.target.name == "hours" ? 24 : 60, Number(e.target.value))
     );
   };
@@ -50,7 +51,6 @@ function Main() {
 
   return (
     <div>
-      <tests />
       <form className={styles.mainContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.urlContainer}>
           <TextField
