@@ -3,8 +3,9 @@ import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
-import { OpenInNew  } from "@mui/icons-material";
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { OpenInNew } from "@mui/icons-material";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ShareIcon from "@mui/icons-material/Share";
 
 function Main() {
   const [newurl, setnewurl] = useState();
@@ -89,18 +90,38 @@ function Main() {
       <div className={styles.newurlcontainer}>
         {newurl ? (
           <Card className={styles.newurl}>
-            <Typography variant="h6" gutterBottom component="div" style={{ overflow: "hidden" }}>
+            <Typography
+              variant="h6"
+              gutterBottom
+              component="div"
+              style={{ overflow: "hidden" }}
+            >
               {newurl}
             </Typography>
             <div className={styles.buttonContainer}>
-            <ContentCopyIcon style={{cursor:'pointer'}} onClick={()=>navigator.clipboard.writeText(newurl)}/>
-            <OpenInNew style={{cursor:'pointer'}} onClick={()=>window.open(newurl)}/>
+              <ContentCopyIcon
+                style={{ cursor: "pointer" }}
+                onClick={() => navigator.clipboard.writeText(newurl)}
+              />
+              <ShareIcon
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  navigator.share({
+                    title: "Youtube",
+                    url: newurl,
+                  })
+                }
+              />
+              <OpenInNew
+                style={{ cursor: "pointer" }}
+                onClick={() => window.open(newurl)}
+              />
             </div>
-            </Card>
+          </Card>
         ) : (
           <Typography variant="h6" gutterBottom component="div">
-          Enter Url And time from which video will start Playing
-        </Typography>
+            Enter Url And time from which video will start Playing
+          </Typography>
         )}
       </div>
     </div>
