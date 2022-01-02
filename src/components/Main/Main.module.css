@@ -1,0 +1,32 @@
+.mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 0 10px;
+}
+.mainContainer div{
+    margin: 5px 0;
+}
+.urlContainer{
+    width: 80%;
+}
+.timeContainer{
+    display: flex;
+    gap: 20px;
+}
+.buttonContainer{
+    display: flex;
+    gap: 31px;
+}
+.newurlcontainer{
+    margin: 0 10px;
+}
+
+@media (max-width: 425px){
+    .timeContainer{
+        flex-direction: column;
+        width: 50%;
+    }
+}
