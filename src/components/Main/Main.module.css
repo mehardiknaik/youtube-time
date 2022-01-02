@@ -32,11 +32,15 @@
 .buttonContainer{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 425px){
     .timeContainer{
         flex-direction: column;
         width: 50%;
+    }
+    .newurl{
+        flex-direction: column;
     }
 }
