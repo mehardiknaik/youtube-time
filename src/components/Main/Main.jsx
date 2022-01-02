@@ -1,6 +1,5 @@
-import { Button, Typography, Icon } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { height } from "@mui/system";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
@@ -24,10 +23,15 @@ function Main() {
     if (seconds) {
       newseconds = +seconds;
     }
-
+    var type='?'
+    if(url.includes('watch?v=')){
+      type='&'
+    }
+    else
+      type='?'
     total = newhours + newminutes + newseconds;
 
-    const newurl = `${url}${total>0? `?t=${total}` : ''}`;
+    const newurl = `${url}${total>0? `${type}t=${total}` : ''}`;
 
     setnewurl(newurl);
     console.log("url===", newurl);
