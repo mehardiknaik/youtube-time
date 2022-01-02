@@ -11,6 +11,12 @@ function Main() {
   const [newurl, setnewurl] = useState();
   const { register, handleSubmit, reset } = useForm();
 
+  const InputLimit = (e, label) => {
+    e.target.value = Math.max(
+      Math.min(e.target.name == "hours" ? 24 : 60, Number(e.target.value))
+    );
+  };
+
   const onSubmit = (data) => {
     var [newhours, newminutes, newseconds] = [0, 0, 0];
     const { url, hours, minutes, seconds } = data;
@@ -44,6 +50,7 @@ function Main() {
 
   return (
     <div>
+      <tests />
       <form className={styles.mainContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.urlContainer}>
           <TextField
@@ -53,17 +60,21 @@ function Main() {
             variant="standard"
             {...register("url", { required: true })}
             fullWidth
+            autoFocus
           />
         </div>
         <div className={styles.timeContainer}>
           <TextField
+            onInput={(e) => InputLimit(e)}
             id="standard-number"
+            min="0"
             label="Hours"
             type="number"
             variant="standard"
             {...register("hours")}
           />
           <TextField
+            onInput={(e) => InputLimit(e)}
             id="standard-number"
             label="Minutes"
             type="number"
@@ -71,6 +82,7 @@ function Main() {
             {...register("minutes")}
           />
           <TextField
+            onInput={(e) => InputLimit(e)}
             id="standard-number"
             label="Seconds"
             type="number"
@@ -120,7 +132,7 @@ function Main() {
           </>
         ) : (
           <Typography variant="h6" gutterBottom component="div">
-            Enter Url And time from which video will start Playing, for example{' '}
+            Enter Url And time from which video will start Playing, for example{" "}
             <a href="https://youtu.be/iSo9l950QLo?t=62" target="_blank">
               click here
             </a>
