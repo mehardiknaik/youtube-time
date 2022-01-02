@@ -1,9 +1,10 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Card, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
-import {OpenInNew} from '@mui/icons-material';
+import { OpenInNew  } from "@mui/icons-material";
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 function Main() {
   const [newurl, setnewurl] = useState();
@@ -13,7 +14,7 @@ function Main() {
     var [newhours, newminutes, newseconds] = [0, 0, 0];
     const { url, hours, minutes, seconds } = data;
 
-    var total=0
+    var total = 0;
     if (hours) {
       newhours = +hours * 3600;
     }
@@ -23,15 +24,13 @@ function Main() {
     if (seconds) {
       newseconds = +seconds;
     }
-    var type='?'
-    if(url.includes('watch?v=')){
-      type='&'
-    }
-    else
-      type='?'
+    var type = "?";
+    if (url.includes("watch?v=")) {
+      type = "&";
+    } else type = "?";
     total = newhours + newminutes + newseconds;
 
-    const newurl = `${url}${total>0? `${type}t=${total}` : ''}`;
+    const newurl = `${url}${total > 0 ? `${type}t=${total}` : ""}`;
 
     setnewurl(newurl);
     console.log("url===", newurl);
@@ -89,12 +88,15 @@ function Main() {
       </form>
       <div className={styles.newurlcontainer}>
         {newurl ? (
-          <>
-            <Typography variant="h6" gutterBottom component="div">
+          <Card className={styles.newurl}>
+            <Typography variant="h6" gutterBottom component="div" style={{ overflow: "hidden" }}>
               {newurl}
             </Typography>
+            <div className={styles.buttonContainer}>
+            <ContentCopyIcon style={{cursor:'pointer'}} onClick={()=>navigator.clipboard.writeText(newurl)}/>
             <OpenInNew style={{cursor:'pointer'}} onClick={()=>window.open(newurl)}/>
-          </>
+            </div>
+            </Card>
         ) : (
           <Typography variant="h6" gutterBottom component="div">
           Enter Url And time from which video will start Playing

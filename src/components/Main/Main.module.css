@@ -23,6 +23,15 @@
 .newurlcontainer{
     margin: 0 10px;
 }
+.newurl{
+    display: flex;
+    justify-content: space-between;
+    padding: 17px;
+}
+.buttonContainer{
+    display: flex;
+    align-items: center;
+}
 
 @media (max-width: 425px){
     .timeContainer{
