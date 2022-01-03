@@ -1,0 +1,14 @@
+.footerContainer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: #eaeaea;
+    padding: 3px 7px;
+    border-radius: 15px;
+  }
+
+  @media (max-width: 768px){
+      .footerContainer{
+        right: 11px;
+      }
+  }

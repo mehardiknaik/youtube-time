@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
 
 import Buttons from "../Buttons/Buttons";
+import Footer from "../Footer/Footer";
 
 function Main() {
   const [newurl, setnewurl] = useState();
@@ -120,6 +121,7 @@ function Main() {
           </Typography>
         )}
       </Card>
+      <Footer/>
     </div>
   );
 }
