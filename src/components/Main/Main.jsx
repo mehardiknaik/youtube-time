@@ -1,11 +1,10 @@
 import { Button, Card, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Main.module.css";
-import { OpenInNew } from "@mui/icons-material";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import ShareIcon from "@mui/icons-material/Share";
+
+import Buttons from "../Buttons/Buttons";
 
 function Main() {
   const [newurl, setnewurl] = useState();
@@ -110,25 +109,7 @@ function Main() {
             >
               {newurl}
             </Typography>
-            <div className={styles.buttonContainer}>
-              <ContentCopyIcon
-                style={{ cursor: "pointer" }}
-                onClick={() => navigator.clipboard.writeText(newurl)}
-              />
-              <ShareIcon
-                style={{ cursor: "pointer" }}
-                onClick={() =>
-                  navigator.share({
-                    title: "Youtube",
-                    url: newurl,
-                  })
-                }
-              />
-              <OpenInNew
-                style={{ cursor: "pointer" }}
-                onClick={() => window.open(newurl)}
-              />
-            </div>
+            <Buttons url={newurl} />
           </>
         ) : (
           <Typography variant="h6" gutterBottom component="div">

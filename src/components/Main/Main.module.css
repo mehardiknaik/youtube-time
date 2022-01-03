@@ -28,11 +28,6 @@
     gap: 16px;
     margin: 10px;
 }
-.buttonContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 @media (max-width: 425px){
     .timeContainer{
