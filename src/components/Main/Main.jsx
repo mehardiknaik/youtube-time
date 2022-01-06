@@ -6,6 +6,7 @@ import styles from "./Main.module.css";
 
 import Buttons from "../Buttons/Buttons";
 import Footer from "../Footer/Footer";
+import { Helmet } from "react-helmet";
 
 function Main() {
   const [newurl, setnewurl] = useState();
@@ -51,6 +52,10 @@ function Main() {
 
   return (
     <div>
+      <Helmet>
+        <title>Youtube Time</title>
+        <meta name="description" content="Youtube Time" />
+      </Helmet>
       <form className={styles.mainContainer} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.urlContainer}>
           <TextField
@@ -121,7 +126,7 @@ function Main() {
           </Typography>
         )}
       </Card>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
