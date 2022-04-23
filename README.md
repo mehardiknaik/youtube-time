@@ -4,7 +4,7 @@
 
 
 
-[Time Calculator](https://mehardiknaik.github.io/time-calculator/)
+[Youtube Time](https://mehardiknaik.github.io/youtube-time/)
 
 <details>
   <summary>ScreenShots</summary>
